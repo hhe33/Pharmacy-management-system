@@ -147,7 +147,32 @@ is_generic = medication == generic
 # - Loyalty discount display
 # - Generic medication availability using __eq__()
 
-# YOUR CODE HERE
+print("\n" + "=" * 50)
+print("              PURCHASE SUMMARY")
+print("=" * 50)
+
+print(medication)
+
+if on_prescription:
+    print("-" * 50)
+    medication.display_prescription()
+
+print("-" * 50)
+print(f"Client              : {client_name}")
+print(f"Quantity purchased  : {quantity_purchased} units")
+print(f"Unit price          : {price} FCFA")
+print(f"Gross total         : {total} FCFA")
+
+if is_member:
+    print(f"Discount (10%)      : -{discount} FCFA")
+
+print(f"Total to pay        : {final_total} FCFA")
+print(f"Remaining stock     : {remaining_stock} units")
+print(f"Loyalty member      : {'Yes' if is_member else 'No'}")
+print(f"Generic available   : {'Yes' if is_generic else 'No'}")
+print("=" * 50)
+print("    Thank you for your visit. Stay healthy.")
+print("=" * 50)
 
 
 # --- Member 5 : KAMBOU Yeri Hermine ---
