@@ -142,5 +142,7 @@ README and Documentation
 - Documented all classes and their attributes and methods
 - Documented how to run the program
 - Documented each group member's contribution
+-For transparency, part of the work assigned to DEHOUMON Christelle was completed by the group because she was unavailable due to illness during the committe period.
+
 ---
 Submitted by Group 22 - Burkina Institute of Technology#
