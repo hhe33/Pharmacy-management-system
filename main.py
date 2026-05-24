@@ -69,7 +69,43 @@ class PrescriptionMedication(Medication):
 # - 3 arithmetic expressions : total, discount, remaining stock
 # - Create Medication or PrescriptionMedication object based on user input
 
-# YOUR CODE HERE
+print("=" * 50)
+print("        PHARMACY MANAGEMENT SYSTEM")
+print("=" * 50)
+
+print("\n--- Medication Registration ---\n")
+
+name            = get_text ("Medication name        : ")
+manufacturer    = get_text ("Manufacturer name      : ")
+price           = get_float("Unit price (FCFA)      : ")
+
+if not Medication.validate_price(price):
+    print("Error: Invalid price.")
+
+stock           = get_int  ("Quantity in stock      : ")
+on_prescription = get_bool ("On prescription? (yes/no) : ")
+
+if on_prescription:
+    doctor             = get_text("Doctor's name                : ")
+    treatment_duration = get_int ("Treatment duration (days)    : ")
+    medication = PrescriptionMedication(name, price, stock, manufacturer, doctor, treatment_duration)
+else:
+    medication = Medication(name, price, stock, manufacturer)
+
+print("\n--- Medication Purchase ---\n")
+
+client_name        = get_text ("Client name                        : ")
+quantity_purchased = get_int  ("Quantity purchased                 : ")
+is_member          = get_bool ("Loyalty member? (yes/no)           : ")
+
+total           = price * quantity_purchased
+discount        = total * 0.10 if is_member else 0
+final_total     = total - discount
+remaining_stock = stock - quantity_purchased 
+
+# Test @classmethod and __eq__
+generic    = Medication.create_generic(name, stock)
+is_generic = medication == generic
 
 
 # --- Member 4 : ZINGUE Anitha Estelle Cynthia ---
