@@ -12,7 +12,45 @@
 # - class Medication : __init__, __str__, __eq__, @staticmethod, @classmethod
 # - class PrescriptionMedication : super().__init__(), doctor, treatment_duration, display_prescription()
 
-# YOUR CODE HERE
+class Medication:
+    def __init__(self, name, price, stock, manufacturer):
+        self.name         = name
+        self.price        = price
+        self.stock        = stock
+        self.manufacturer = manufacturer
+
+    def __str__(self):
+        return (
+            f"Medication  : {self.name}\n"
+            f"Price       : {self.price} FCFA\n"
+            f"Stock       : {self.stock} units\n"
+            f"Manufacturer: {self.manufacturer}"
+        )
+
+    def __eq__(self, other):
+        return self.name.lower() == other.name.lower()
+
+    @staticmethod
+    def validate_price(price):
+        return price > 0
+
+    @classmethod
+    def create_generic(cls, name, stock):
+        return cls(name, 500.0, stock, "Generic Lab")
+
+
+
+
+
+class PrescriptionMedication(Medication):
+    def __init__(self, name, price, stock, manufacturer, doctor, treatment_duration):
+        super().__init__(name, price, stock, manufacturer)
+        self.doctor             = doctor
+        self.treatment_duration = treatment_duration
+
+    def display_prescription(self):
+        print(f"Prescribing Doctor  : {self.doctor}")
+        print(f"Treatment Duration  : {self.treatment_duration} days")
 
 
 # --- Member 2 : DEHOUMON Christelle ---
